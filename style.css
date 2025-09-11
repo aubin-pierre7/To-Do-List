@@ -1,0 +1,319 @@
+/* Variables de theme */
+:root {
+  --bleu-1: #0d47a1;
+  --bleu-2: #1976d2;
+  --bleu-3: #42a5f5;
+  --bleu-4: #e3f2fd;
+  --blanc: #ffffff;
+  --gris-1: #f2f4f7;
+  --gris-2: #d0d5dd;
+  --gris-3: #98a2b3;
+  --noir: #0b1323;
+  --rayon: 16px;
+  --ombre: 0 10px 30px rgba(13, 71, 161, 0.18);
+  --transition: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, Arial, sans-serif;
+  color: var(--noir);
+  background: radial-gradient(
+        1000px 500px at 10% 0%,
+        var(--bleu-4),
+        var(--blanc)
+      )
+      fixed,
+    linear-gradient(180deg, var(--blanc), var(--bleu-4));
+}
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 24px;
+  gap: 24px;
+}
+
+.app {
+  width: 100%;
+  max-width: 720px;
+  background: var(--blanc);
+  border: 1px solid var(--gris-2);
+  border-radius: calc(var(--rayon) + 4px);
+  box-shadow: var(--ombre);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: apparition 0.4s ease-out both;
+}
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.app__header {
+  text-align: center;
+}
+
+h1 {
+  margin: 8px 0 4px;
+  font-size: clamp(22px, 3vw, 28px);
+}
+.sous-titre {
+  margin: 0;
+  color: var(--gris-3);
+}
+
+/* Formulaire pour les ajouts*/
+.ajout form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+#champ-tache {
+  padding: 14px 14px;
+  border: 1.5px solid var(--gris-2);
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  background: var(--gris-1);
+  transition: border var(--transition), background var(--transition),
+    box-shadow var(--transition);
+}
+#champ-tache:focus {
+  border-color: var(--bleu-2);
+  background: var(--blanc);
+  box-shadow: 0 0 0 4px rgba(66, 165, 245, 0.25);
+}
+.btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition),
+    background var(--transition);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--principal {
+  background: linear-gradient(135deg, var(--bleu-3), var(--bleu-2));
+  color: var(--blanc);
+  box-shadow: var(--ombre);
+}
+.btn--principal:hover {
+  filter: brightness(1.05);
+}
+.btn--danger {
+  background: var(--blanc);
+  border-color: #ffb4b4;
+  color: #c62828;
+}
+.btn--danger:hover {
+  background: #ffe9e9;
+}
+
+/* Onglets */
+.onglets {
+  display: flex;
+  gap: 8px;
+  background: var(--gris-1);
+  border-radius: 12px;
+  padding: 6px;
+}
+.onglet {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--noir);
+}
+.onglet.actif {
+  background: var(--blanc);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--gris-2);
+}
+
+/* Liste */
+.liste {
+  background: var(--blanc);
+}
+#liste-taches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.message-vide {
+  text-align: center;
+  color: var(--gris-3);
+  padding: 16px 0 8px;
+  display: none;
+}
+.tache {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--gris-2);
+  border-radius: 12px;
+  background: var(--blanc);
+  transition: background var(--transition), transform var(--transition),
+    border var(--transition);
+  animation: slideIn 0.25s ease-out;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.tache:hover {
+  background: var(--bleu-4);
+}
+.tache__checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--bleu-2);
+  cursor: pointer;
+}
+.tache__texte {
+  margin: 0;
+  word-break: break-word;
+}
+.tache.terminee .tache__texte {
+  text-decoration: line-through;
+  color: var(--gris-3);
+}
+
+.badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--gris-1);
+  border: 1px solid var(--gris-2);
+  color: var(--gris-3);
+}
+.tache.terminee .badge {
+  background: #e8f5e9;
+  border-color: #a5d6a7;
+  color: #1b5e20;
+}
+
+/* Menu */
+.menu {
+  position: relative;
+}
+.menu__bouton {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menu__bouton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+.menu__liste {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  min-width: 160px;
+  background: var(--blanc);
+  border: 1px solid var(--gris-2);
+  border-radius: 12px;
+  box-shadow: var(--ombre);
+  padding: 6px;
+  display: none;
+  z-index: 10;
+}
+.menu.ouvert .menu__liste {
+  display: block;
+  animation: pop 0.12s ease-out;
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.menu__item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menu__item:hover {
+  background: var(--gris-1);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  max-width: 720px;
+  margin-top: auto;
+  background: var(--blanc);
+  border: 1px solid var(--gris-2);
+  border-radius: calc(var(--rayon) + 4px);
+  box-shadow: var(--ombre);
+}
+.footer__contenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  padding: 14px 18px;
+  font-size: 14px;
+}
+.footer__contenu span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 560px) {
+  .footer__contenu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To-Do List-Aubin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="Favicon.png" />
+  </head>
+  <body>
+    <div class="page">
+      <main class="app">
+        <header class="app__header">
+          <h1>Ma To-Do List</h1>
+          <hr />
+          <p class="sous-titre">POUR MES TACHES</p>
+        </header>
+
+        <section class="ajout">
+          <form id="form-nouvelle-tache" autocomplete="off">
+            <input
+              id="champ-tache"
+              type="text"
+              placeholder="Ajouter une nouvelle tache…"
+            />
+            <button type="submit" class="btn btn--principal">Ajouter</button>
+          </form>
+        </section>
+
+        <nav class="onglets" role="tablist">
+          <button
+            class="onglet actif"
+            data-filtre="toutes"
+            role="tab"
+            aria-selected="true"
+          >
+            Toutes
+          </button>
+          <button
+            class="onglet"
+            data-filtre="en-attente"
+            role="tab"
+            aria-selected="false"
+          >
+            En attente
+          </button>
+          <button
+            class="onglet"
+            data-filtre="terminees"
+            role="tab"
+            aria-selected="false"
+          >
+            Terminees
+          </button>
+        </nav>
+
+        <section class="liste">
+          <ul id="liste-taches" aria-live="polite"></ul>
+          <p id="message-vide" class="message-vide">
+            Aucune tache pour l’instant.
+          </p>
+        </section>
+
+        <section class="actions">
+          <button id="tout-effacer" class="btn btn--danger">
+            Tout effacer
+          </button>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__contenu">
+          <span>Aubin</span>
+          <span>2025</span>
+          <span>Concu avec passion</span>
+          <span>IUT De Douala</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
