@@ -9,5 +9,11 @@ Elle permet de gerer vos taches quotidiennes de manière simple et intuitive.
 - Supprimer une tache
 
 
+  ##  Captures d'écran  
+
+| ![Premiere vu du site](./Captures/General.png) | ![Apres modification](./Captures/Modif.png) |
+
+
+
 ## Démo
 Lien du site en ligne: https://aubin-pierre7.github.io/To-Do-List/
